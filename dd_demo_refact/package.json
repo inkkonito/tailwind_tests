@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "start": "nodemon server.js"
+  },
   "dependencies": {
+    "@datadome/node-module": "^1.5.0",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
+    "express": "^4.19.2",
     "nodemon": "^3.1.0",
     "tailwindcss": "^3.4.3"
   }
