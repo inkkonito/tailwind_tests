@@ -4,7 +4,24 @@ const app = express();
 const path = require("path");
 const DataDome = require("@datadome/node-module");
 const dotenv = require("dotenv");
+require("dotenv").config();
 const datadomeClient = new DataDome(process.env.DDKEY, "api.datadome.co");
+
+// DataDome
+
+app.use(function (req, resp, next) {
+  datadomeClient.authCallback(
+    req,
+    resp,
+    function () {
+      // apiserver passed request, move forward
+      next();
+    },
+    function () {
+      // nothing to do when blocked
+    }
+  );
+});
 
 // Open array for user storage
 const users = [];
@@ -26,35 +43,24 @@ app.post("/register", async (req, res) => {
       password: req.body.password,
     });
     console.log(users);
-    res.send("SUCCES");
   } catch (err) {
     console.log(err);
     res.redirect("/register");
   }
 });
 
-app.get("/login.ejs", (req, res) => {
-  res.render("login.ejs");
+app.get("/index", (req, res) => {
+  res.render(path.resolve(__dirname + "/public/views/index.ejs"));
 });
 
-app.get("/register.ejs", (req, res) => {
-  res.render("register.ejs");
+app.get("/login", (req, res) => {
+  res.render(path.resolve(__dirname + "/public/views/login.ejs"));
 });
+
+app.get("/register", (req, res) => {
+  res.render(path.resolve(__dirname + "/public/views/register.ejs"));
+});
+
 // End Routes
 
-// DataDome install
-
-app.use(function (req, resp, next) {
-  datadomeClient.authCallback(
-    req,
-    resp,
-    function () {
-      // apiserver passed request, move forward
-      next();
-    },
-    function () {
-      // nothing to do when blocked
-    }
-  );
-});
-app.listen(3000);
+app.listen(3002);
