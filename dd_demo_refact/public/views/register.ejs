@@ -16,11 +16,12 @@
         class="container w-1/2 h-auto bg-white rounded border-transparent outline outline-ddgrey outline-4 p-2 hover:outline-8">
         <h1 class="bg-ddblue rounded-t text-center text-lg font-semibold p-1">Register flow protected by DataDome</h1>
         <div class="container flex flex-wrap justify-around bg-ddwhite p-3 rounded-b-md">
-            <button type="button" class="w-1/2 hover:text-ddblue text-sm hover:scale-110 bg-transparent">Admin</button>
+            <button type="button" class="w-1/3 hover:text-ddblue text-sm hover:scale-110 bg-transparent">Admin</button>
+            <button type="button" class="w-1/3 hover:text-ddblue text-sm hover:scale-110 bg-transparent">Login Demo</button>
             <button type="button" onclick="autofill()"
-                class="w-1/2 hover:text-ddblue text-sm hover:scale-110">Autofill</button>
+                class="w-1/3 hover:text-ddblue text-sm hover:scale-110">Autofill</button>
         </div>
-        <h2 class="text-center font-bold m-2">Register now!</h2>
+        <h2 class="text-center font-bold m-2"><i class="fa-solid fa-user-plus"></i> Register now</h2>
         <form action="/register" method="POST">
             <div class="flex flex-col gap-y-2">
                 <div class="flex w-90 mx-auto gap-1">
@@ -45,9 +46,21 @@
                 </div>
                 <div class="flex w-90 gap-2 mt-1">
                     <button type="submit"
-                        class="w-1/2 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">Submit</button>
+                        class="w-1/2 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">Submit
+                        x1</button>
                     <button type="reset"
                         class="w-1/2 bg-ddred p-1 rounded-md text-white border-2 border-ddred hover:text-ddred hover:bg-white hover:border-ddred hover:border-2">Reset</button>
+                </div>
+                <h2 class="text-center font-bold m-2"><i class="fa-solid fa-envelopes-bulk"></i> Bulk actions</h2>
+                <div class="container flex w-90 gap-2 mt-1">
+                    <button
+                        class="w-1/4 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">x10</button>
+                    <button
+                        class="w-1/4 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">x100</button>
+                    <button
+                        class="w-1/4 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">x1000</button>
+                    <button
+                        class="w-1/4 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">x10000</button>
                 </div>
             </div>
         </form>

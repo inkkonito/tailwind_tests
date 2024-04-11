@@ -5,21 +5,21 @@ const path = require("path");
 const DataDome = require("@datadome/node-module");
 const dotenv = require("dotenv");
 require("dotenv").config();
-const datadomeClient = new DataDome(process.env.DDKEY, "api.datadome.co");
+const datadomeClient = new DataDome(process.env.DDKEY, "api.datadome.co", {
+  timeout: 200,
+  uriRegexExclusion:
+    /\.(js|css|jpg|jpeg|png|ico|gif|tiff|svg|woff|woff2|ttf|eot|mp4|otf)$/,
+});
 
-// DataDome
-
+// DataDome install
 app.use(function (req, resp, next) {
   datadomeClient.authCallback(
     req,
     resp,
     function () {
-      // apiserver passed request, move forward
       next();
     },
-    function () {
-      // nothing to do when blocked
-    }
+    function () {}
   );
 });
 
