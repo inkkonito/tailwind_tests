@@ -32,6 +32,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Use middleware to get input payloads
 app.use(express.urlencoded({ extended: false }));
 
+
 // Start Routes
 app.post("/register", async (req, res) => {
   try {
