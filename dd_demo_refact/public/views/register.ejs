@@ -11,27 +11,27 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-ddgrey h-screen flex flex-col justify-center items-center text-black ">
+<body class="bg-ddgrey min-h-screen flex flex-col justify-center items-center text-black ">
 
     <div class="container w-1/2 h-auto bg-white rounded border-transparent p-2 mb-1">
         <div
-            class="container flex flex-col items-center flex-wrap gap-y-2 bg-ddwhite p-3 rounded-md md:flex-row justify-center md:justify-around">
+            class="container flex flex-col items-center gap-y-2 bg-ddwhite p-3 rounded-md sm:flex-row justify-center sm:justify-around">
             <button type="button"
                 class="w-1/3 hover:text-ddblue text-sm bg-transparent border-dashed border-ddblue border-r-0 md:border-r-2">Admin</button>
             <button type="button"
-                class="w-1/3 hover:text-ddblue text-sm bg-transparent md:border-r-2 border-dashed border-ddblue">Login
+                class="w-1/3 hover:text-ddblue text-sm bg-transparent md:border-r-2 border-dashed border-ddblue ">Login
                 Demo</button>
-            <button type="button" onclick="autofill()" class="w-1/3 hover:text-ddblue text-sm">Autofill</button>
+            <button type="button" onclick="autofill()" class="w-1/3 hover:text-ddblue text-sm ">Autofill</button>
         </div>
-        <img src="./assets/images/datadome.png" alt="" class="h-20 md:h-28 mx-auto animate-fade-right">
+        <img src="./assets/images/datadome.png" alt="" class="animate-in fade-in zoom-in h-20 md:h-28 mx-auto">
 
         <h1 class="bg-ddblue rounded-t text-center text-ddgrey text-lg font-semibold capitalize p-1">Protected Register
             flow
             Featuring DataDome products
         </h1>
         <div
-            class="container flex flex-col min-h-40 md:flex-row justify-around p-2 sm:gap-x-2 text-ddgrey items-center self-center bg-ddwhite rounded-b-md">
-            <div class="flex flex-col text-center">
+            class="container flex flex-col min-h-56 gap-y-4 sm:min-h-40 lg:flex-row justify-around p-2 sm:gap-x-2 text-ddgrey items-center self-center bg-ddwhite rounded-b-md content-center py-2 ">
+            <div class="flex flex-col text-center content-center my-2">
                 <h3 class="text-lg my-1 "><i class="fa-solid fa-robot fa-xl">&nbsp;</i>Bot Management</h3>
                 <p class="text-justify text-sm italic">Collecting the right technical signals from the requests to
                     determine if the
