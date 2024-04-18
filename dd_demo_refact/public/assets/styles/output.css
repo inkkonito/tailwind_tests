@@ -1399,51 +1399,6 @@ table, th, tr, td {
   width: 100%;
 }
 
-.w-9 {
-  width: 2.25rem;
-}
-
-.w-max {
-  width: -moz-max-content;
-  width: max-content;
-}
-
-.w-40 {
-  width: 10rem;
-}
-
-.w-8 {
-  width: 2rem;
-}
-
-.w-80 {
-  width: 20rem;
-}
-
-.w-20 {
-  width: 5rem;
-}
-
-.w-2 {
-  width: 0.5rem;
-}
-
-.w-1 {
-  width: 0.25rem;
-}
-
-.w-10 {
-  width: 2.5rem;
-}
-
-.w-auto {
-  width: auto;
-}
-
-.w-svw {
-  width: 100svw;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -1580,21 +1535,6 @@ table, th, tr, td {
   padding: 0.75rem;
 }
 
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1603,6 +1543,16 @@ table, th, tr, td {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .text-center {
@@ -1649,14 +1599,14 @@ table, th, tr, td {
   color: rgb(61 71 81 / var(--tw-text-opacity));
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .text-ddwhite {
   --tw-text-opacity: 1;
   color: rgb(233 242 244 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 @keyframes enter {

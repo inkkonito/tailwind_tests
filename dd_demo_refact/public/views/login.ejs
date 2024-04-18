@@ -1,88 +1,154 @@
 <!doctype html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./assets/styles/output.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./assets/styles/output.css" rel="stylesheet" />
     <script src="./assets/script/script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
 
-<body class="bg-ddgrey min-h-screen flex flex-col justify-center items-center text-black ">
+  <body
+    class="flex min-h-screen flex-col items-center justify-center bg-ddgrey text-black"
+  >
+    <div
+      class="container mb-1 h-auto w-1/2 rounded border-transparent bg-white p-2"
+    >
+      <div
+        class="container flex flex-col items-center justify-center gap-y-2 rounded-md bg-ddwhite p-3 text-center sm:flex-row sm:justify-around"
+      >
+        <a
+          href="/admin"
+          class="w-1/3 border-dashed border-ddblue bg-transparent text-sm hover:text-ddblue md:border-r-2"
+          >Admin</a
+        >
+        <a
+          href="/register"
+          class="w-1/3 border-dashed border-ddblue bg-transparent text-sm hover:text-ddblue md:border-r-2"
+          >Register</a
+        >
+        <button
+          type="button"
+          onclick="autofillLogin()"
+          class="w-1/3 text-sm hover:text-ddblue"
+        >
+          Autofill
+        </button>
+      </div>
+      <img
+        src="./assets/images/datadome.png"
+        alt=""
+        class="mx-auto h-20 animate-in fade-in zoom-in md:h-28"
+      />
 
-    <div class="container w-1/2 h-auto bg-white rounded border-transparent p-2 mb-1">
-        <div
-            class="container flex flex-col items-center text-center gap-y-2 bg-ddwhite p-3 rounded-md sm:flex-row justify-center sm:justify-around">
-            <a href="/admin"
-                class="w-1/3 hover:text-ddblue text-sm bg-transparent md:border-r-2 border-dashed border-ddblue">Admin</a>
-            <a href="/register"
-                class="w-1/3 hover:text-ddblue text-sm bg-transparent md:border-r-2 border-dashed border-ddblue">Register</a>
-            <button type="button" onclick="autofillLogin()" class="w-1/3 hover:text-ddblue text-sm ">Autofill</button>
+      <h1
+        class="rounded-t bg-ddblue p-1 text-center text-lg font-semibold capitalize text-ddgrey"
+      >
+        Protected Login flow Featuring DataDome products
+      </h1>
+      <div
+        class="container flex min-h-56 flex-col content-center items-center justify-around gap-y-4 self-center rounded-b-md bg-ddwhite p-2 py-2 text-ddgrey sm:min-h-40 sm:gap-x-2 lg:flex-row"
+      >
+        <div class="my-2 flex flex-col content-center text-center">
+          <h3 class="my-1 text-lg">
+            <i class="fa-solid fa-robot fa-xl">&nbsp;</i>Bot Management
+          </h3>
+          <p class="text-justify text-sm italic">
+            Collecting the right technical signals from the requests to
+            determine if the requests / sessions are automated: fingerprint,
+            signature, behaviour, reputation, etc.
+          </p>
         </div>
-        <img src="./assets/images/datadome.png" alt="" class="animate-in fade-in zoom-in h-20 md:h-28 mx-auto">
-
-        <h1 class="bg-ddblue rounded-t text-center text-ddgrey text-lg font-semibold capitalize p-1">Protected Login
-            flow
-            Featuring DataDome products
-        </h1>
-        <div
-            class="container flex flex-col min-h-56 gap-y-4 sm:min-h-40 lg:flex-row justify-around p-2 sm:gap-x-2 text-ddgrey items-center self-center bg-ddwhite rounded-b-md content-center py-2 ">
-            <div class="flex flex-col text-center content-center my-2">
-                <h3 class="text-lg my-1 "><i class="fa-solid fa-robot fa-xl">&nbsp;</i>Bot Management</h3>
-                <p class="text-justify text-sm italic">Collecting the right technical signals from the requests to
-                    determine if the
-                    requests / sessions are automated: fingerprint, signature, behaviour, reputation, etc.
-                </p>
-            </div>
-            <i class="fa-solid fa-plus fa-2xl"></i>
-            <div class="flex flex-col text-center">
-                <h3 class="text-lg my-1 "><i class="fa-solid fa-user-shield fa-xl">&nbsp;</i>Account Protect</h3>
-                <p class="text-justify text-sm italic">Collecting business & user oriented signals to expose user fraud
-                    abuse,
-                    ie. when
-                    the account is hijacked:Customer ID (email, phone number), names, etc.
-                </p>
-            </div>
+        <i class="fa-solid fa-plus fa-2xl"></i>
+        <div class="flex flex-col text-center">
+          <h3 class="my-1 text-lg">
+            <i class="fa-solid fa-user-shield fa-xl">&nbsp;</i>Account Protect
+          </h3>
+          <p class="text-justify text-sm italic">
+            Collecting business & user oriented signals to expose user fraud
+            abuse, ie. when the account is hijacked:Customer ID (email, phone
+            number), names, etc.
+          </p>
         </div>
+      </div>
 
-        <h2 class="text-center font-bold m-2"><i class="fa-solid fa-user-plus"></i> Login now</h2>
-        <form action="/register" method="POST">
-            <div class="flex flex-col gap-y-2">
-                <div class="flex flex-col w-full mx-auto gap-1 md:flex-row md:w-90">
-                    <label for="email"></label>
-                    <input type="email" name="email" placeholder="Email*"
-                        class="w-full md:w-1/2 text-center border-2 border-ddwhite border-dashed rounded-md p-1 hover:border-ddblue focus:ring-0 active:border-ddblue focus:border-ddblue"
-                        id="email" required>
-                    <label for="password"></label>
-                    <input type="password" name="password" placeholder="Password*"
-                        class="w-full md:w-1/2 text-center border-2 border-ddwhite border-dashed rounded-md p-1 hover:border-ddblue focus:ring-0 active:border-ddblue focus:border-ddblue"
-                        id="password" required>
-                </div>
-                <div class="w-90 flex flex-col md:flex-row gap-2 mt-1">
-                    <button type="submit"
-                        class="md:w-1/2 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">Submit
-                    </button>
-                    <button type="reset"
-                        class="md:w-1/2 bg-ddred p-1 rounded-md text-white border-2 border-ddred hover:text-ddred hover:bg-white hover:border-ddred hover:border-2">Reset</button>
-                </div>
-                <h2 class="text-center font-bold m-2"><i class="fa-solid fa-envelopes-bulk"></i> Login in bulk using dictionnaries</h2>
-                <div class="container flex w-90 gap-2 mt-1">
-                    <button onclick="bulktenusers()"
-                        class="w-1/4 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">x10</button>
-                    <button
-                        class="w-1/4 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">x100</button>
-                    <button
-                        class="w-1/4 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">x1000</button>
-                    <button
-                        class="w-1/4 bg-ddgreen p-1 rounded-md text-white border-2 border-ddgreen hover:text-ddgreen hover:bg-white hover:border-ddgreen">x10000</button>
-                </div>
-            </div>
-        </form>
+      <h2 class="m-2 text-center font-bold">
+        <i class="fa-solid fa-user-plus"></i> Login now
+      </h2>
+      <form action="/register" method="POST">
+        <div class="flex flex-col gap-y-2">
+          <div class="md:w-90 mx-auto flex w-full flex-col gap-1 md:flex-row">
+            <label for="email"></label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email*"
+              class="w-full rounded-md border-2 border-dashed border-ddwhite p-1 text-center hover:border-ddblue focus:border-ddblue focus:ring-0 active:border-ddblue md:w-1/2"
+              id="email"
+              required
+            />
+            <label for="password"></label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password*"
+              class="w-full rounded-md border-2 border-dashed border-ddwhite p-1 text-center hover:border-ddblue focus:border-ddblue focus:ring-0 active:border-ddblue md:w-1/2"
+              id="password"
+              required
+            />
+          </div>
+          <div class="w-90 mt-1 flex flex-col gap-2 md:flex-row">
+            <button
+              type="submit"
+              class="rounded-md border-2 border-ddgreen bg-ddgreen p-1 text-white hover:border-ddgreen hover:bg-white hover:text-ddgreen md:w-1/2"
+            >
+              Submit
+            </button>
+            <button
+              type="reset"
+              class="rounded-md border-2 border-ddred bg-ddred p-1 text-white hover:border-2 hover:border-ddred hover:bg-white hover:text-ddred md:w-1/2"
+            >
+              Reset
+            </button>
+          </div>
+          <h2 class="m-2 text-center font-bold">
+            <i class="fa-solid fa-envelopes-bulk"></i> Login in bulk using
+            dictionnaries
+          </h2>
+          <div class="w-90 container mt-1 flex gap-2">
+            <button
+              onclick="bulktenusers()"
+              class="w-1/4 rounded-md border-2 border-ddgreen bg-ddgreen p-1 text-white hover:border-ddgreen hover:bg-white hover:text-ddgreen"
+            >
+              x10
+            </button>
+            <button
+              class="w-1/4 rounded-md border-2 border-ddgreen bg-ddgreen p-1 text-white hover:border-ddgreen hover:bg-white hover:text-ddgreen"
+            >
+              x100
+            </button>
+            <button
+              class="w-1/4 rounded-md border-2 border-ddgreen bg-ddgreen p-1 text-white hover:border-ddgreen hover:bg-white hover:text-ddgreen"
+            >
+              x1000
+            </button>
+            <button
+              class="w-1/4 rounded-md border-2 border-ddgreen bg-ddgreen p-1 text-white hover:border-ddgreen hover:bg-white hover:text-ddgreen"
+            >
+              x10000
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
-    <div class="container text-center text-white text-sm">© Made with Tailwind CSS | © Protected by DataDome</div>
-</body>
-
+    <div class="container text-center text-sm text-white">
+      © Made with Tailwind CSS | © Protected by DataDome
+    </div>
+  </body>
 </html>

@@ -2,20 +2,24 @@
   "scripts": {
     "forever": "forever start -c nodemon server.js",
     "start": "nodemon server.js",
-    "dev": "npx tailwindcss -i ./public/assets/styles/input.css -o ./public/assets/styles/output.css --watch"
+    "dev": "tailwindcss -i ./public/assets/styles/input.css -o ./public/assets/styles/output.css --watch"
   },
   "dependencies": {
+    "@datadome/fraud-sdk-node": "^1.1.2",
     "@datadome/node-module": "^1.5.0",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.9",
     "express": "^4.19.2",
     "nodemon": "^3.1.0",
-    "sqlite3": "^5.1.7",
-    "tailwindcss": "^3.4.3"
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
+    "autoprefixer": "^10.4.19",
     "daisyui": "^4.10.1",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "tailwindcss": "^3.4.3",
     "tailwindcss-animate": "^1.0.7"
   }
 }

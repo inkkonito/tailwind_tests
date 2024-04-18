@@ -14,8 +14,7 @@ app.set("view engine", "ejs");
 // DD Config
 const datadomeClient = new DataDome(process.env.DDKEY, "api.datadome.co", {
   timeout: 200,
-  uriRegexExclusion:
-    /\.(js|css|jpg|jpeg|png|ico|gif|tiff|svg|woff|woff2|ttf|eot|mp4|otf)$/,
+  uriRegexExclusion: /\.(js|css|jpg|jpeg|png|ico|gif|tiff|svg|woff|woff2|ttf|eot|mp4|otf)$/,
 });
 
 // DataDome install
@@ -26,7 +25,7 @@ app.use(function (req, resp, next) {
     function () {
       next();
     },
-    function () {}
+    function () {},
   );
 });
 
@@ -46,29 +45,130 @@ let db = new sqlite3.Database(":memory:", (err) => {
 
 // SQLITE3 - Create table
 db.run(
-  "CREATE TABLE IF NOT EXISTS Users(firstName, lastName, email, password)",
+  "CREATE TABLE IF NOT EXISTS Users(id INTEGER PRIMARY KEY AUTOINCREMENT, firstName, lastName, email, password)",
   (err) => {
     if (err) {
       console.log(err);
       throw err;
     }
-  }
+  },
 );
+
+// DD Account Protect Config
+const {
+  DataDome: DataDomeAC,
+  RegistrationEvent,
+  ResponseAction,
+} = require("@datadome/fraud-sdk-node");
+const datadomeClient2 = new DataDomeAC(process.env.ACCOUNTPROTECTKEY);
 
 // Start Routing Routes
 
 // Post Add Users
 app.post("/register", async (req, res) => {
-  try {
-    db.run(
-      "INSERT INTO Users(firstName, lastName, email, password) VALUES(?,?,?,?)",
-      [req.body.firstName, req.body.lastName, req.body.email, req.body.password]
-    );
-  } catch (err) {
-    console.error(err.message);
+  const startTime = Date.now();
+  var emailAccount = req.body.email;
+  var session = { id: "sessionId", createdAt: new Date() };
+
+  var userAddress = {
+    name: "HQ",
+    line1: "22 rue de la Michodiere",
+    line2: "2nd floor",
+    city: "Paris",
+    countryCode: "FR",
+    country: "France",
+    regionCode: "75",
+    zipCode: "75002",
+  };
+
+  var user = {
+    id: "userId",
+    title: "mrs",
+    firstName: "Data",
+    lastName: "Dome",
+    createdAt: new Date(),
+    phone: "+33978787878",
+    email: emailAccount,
+    address: userAddress,
+  };
+
+  var registrationEvent = new RegistrationEvent(emailAccount, session, user);
+
+  const datadomeResponse = await datadomeClient2.validate(req, registrationEvent);
+
+  let createLoop = 0;
+  console.log(req.body)
+  if (datadomeResponse?.action == ResponseAction.ALLOW) {
+    if (req.body.createOneUser !== undefined) {
+        try {
+          db.run("INSERT INTO Users(firstName, lastName, email, password) VALUES(?,?,?,?)", [
+            req.body.firstName,
+            req.body.lastName,
+            req.body.email,
+            req.body.password,
+          ]);
+          console.log(`User ID : ` + createLoop + ` created`);
+        } catch (err) {
+          console.error(err.message);
+        }
+      res.redirect("./register");
+    }
+   else if (req.body.createTenUsers !== undefined) {
+      while (createLoop < 10) {
+        try {
+          db.run("INSERT INTO Users(firstName, lastName, email, password) VALUES(?,?,?,?)", [
+            req.body.firstName,
+            req.body.lastName,
+            req.body.email,
+            req.body.password,
+          ]);
+          console.log(`User ID : ` + createLoop + ` created`);
+        } catch (err) {
+          console.error(err.message);
+        }
+        createLoop++;
+      }
+      res.redirect("./register");
+    }
+    else if (req.body.createHundredUsers !== undefined) {
+      while (createLoop < 100) {
+        try {
+          db.run("INSERT INTO Users(firstName, lastName, email, password) VALUES(?,?,?,?)", [
+            req.body.firstName,
+            req.body.lastName,
+            req.body.email,
+            req.body.password,
+          ]);
+          console.log(`User ID : ` + createLoop + ` created`);
+        } catch (err) {
+          console.error(err.message);
+        }
+        createLoop++;
+      }
+      res.redirect("./register");
+    }
+    else if (req.body.createThousandUsers !== undefined) {
+      while (createLoop < 1000) {
+        try {
+          db.run("INSERT INTO Users(firstName, lastName, email, password) VALUES(?,?,?,?)", [
+            req.body.firstName,
+            req.body.lastName,
+            req.body.email,
+            req.body.password,
+          ]);
+          console.log(`User ID : ` + createLoop + ` created`);
+        } catch (err) {
+          console.error(err.message);
+        }
+        createLoop++;
+      }
+      res.redirect("./register");
+    }
+  } 
+    else {
+    res.status(401).send(`Access denied [by DD] ! ${datadomeResponse?.reasons[0]}`);
   }
-  res.redirect("./register");
-});
+}); 
 
 // Get Index page
 app.get("/index", (req, res) => {
@@ -89,12 +189,13 @@ app.get("/admin", (req, res) => {
     // receives all the results as an array
     rows.forEach((row) => {
       usersList.push({
+        id: row.id,
         firstName: row.firstName,
         lastName: row.lastName,
         email: row.email,
         password: row.password,
       });
-      console.log(`${row.firstName} is a ${row.lastName}`);
+      console.log(`User list selected`);
     });
     res.render(path.resolve(__dirname + "/public/views/admin.ejs"), {
       users: usersList,
