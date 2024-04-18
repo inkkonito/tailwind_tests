@@ -1015,6 +1015,25 @@ h2 {
   color: rgb(231 39 45 / var(--tw-text-opacity));
 }
 
+.hover\:border:hover {
+  border-width: 1px;
+}
+
+.hover\:bg-secondary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 178 23 / var(--tw-bg-opacity));
+}
+
+.hover\:text-primary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(231 39 45 / var(--tw-text-opacity));
+}
+
+.hover\:text-secondary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(251 178 23 / var(--tw-text-opacity));
+}
+
 @media (min-width: 640px) {
   .sm\:flex-col {
     flex-direction: column;
